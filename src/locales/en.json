@@ -27,6 +27,7 @@
   "about_text": "This sudoku app is and will be free of charge, free of ads and free of tracking. Its source code is available at",
   "created_by": "Created by Tom Nick.",
   "report_issue": "If you find a bug or experience any issues, please report it on",
+  "powered_by": "Analysis and hint system powered by",
   "congrats": "🎉 Congrats, you won! 🎉",
   "solved_times": "You solved this sudoku {{count}} times",
   "solved_time": "You solved this sudoku {{count}} time",

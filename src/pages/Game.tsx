@@ -304,6 +304,18 @@ const SettingsAndInformation = () => {
             </a>
             .
           </p>
+          <p className="text-white mt-2">
+            {t("powered_by")}{" "}
+            <a
+              target="_blank"
+              className="underline"
+              href="https://github.com/komeilmehranfar/sudoku-core"
+              rel="noreferrer"
+            >
+              sudoku-core
+            </a>
+            .
+          </p>
         </div>
       </div>
     </div>

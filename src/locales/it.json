@@ -27,6 +27,7 @@
   "about_text": "Questa app di sudoku è e sarà gratuita, senza pubblicità e senza tracciamento. Il suo codice sorgente è disponibile su",
   "created_by": "Creato da Tom Nick.",
   "report_issue": "Se trovi un bug o riscontri problemi, segnalalo su",
+  "powered_by": "Sistema di analisi e suggerimenti basato su",
   "congrats": "🎉 Congratulazioni, hai vinto! 🎉",
   "solved_times": "Hai risolto questo sudoku {{count}} volte",
   "solved_time": "Hai risolto questo sudoku {{count}} volta",

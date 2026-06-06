@@ -27,6 +27,7 @@
   "about_text": "这款数独应用将始终免费、无广告、无追踪。源码可在以下地址获取：",
   "created_by": "由 Tom Nick 创建。",
   "report_issue": "如果你发现 Bug 或遇到问题，请在以下地址反馈：",
+  "powered_by": "分析与提示系统由以下项目提供支持：",
   "congrats": "🎉 恭喜，你完成了！🎉",
   "solved_times": "你已解出该数独 {{count}} 次",
   "solved_time": "你已解出该数独 {{count}} 次",

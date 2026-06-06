@@ -27,6 +27,7 @@
   "about_text": "Diese Sudoku-App ist und wird kostenlos, werbefrei und ohne Tracking sein. Der Quellcode ist verfügbar unter",
   "created_by": "Erstellt von Tom Nick.",
   "report_issue": "Wenn Sie einen Fehler finden oder Probleme haben, melden Sie es bitte unter",
+  "powered_by": "Analyse- und Hinweissystem unterstützt von",
   "congrats": "🎉 Glückwunsch, Sie haben gewonnen! 🎉",
   "solved_times": "Sie haben dieses Sudoku {{count}} Mal gelöst",
   "solved_time": "Sie haben dieses Sudoku {{count}} Mal gelöst",

@@ -58,9 +58,5 @@ export default defineConfig(() => ({
   //     : {global: {}},
   server: {
     open: true,
-    port: 3000,
-  },
-  preview: {
-    port: 3000,
   },
 }));

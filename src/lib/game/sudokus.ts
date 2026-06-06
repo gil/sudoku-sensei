@@ -122,6 +122,7 @@ export function useSudokuCollections() {
       ...collection,
       sudokusRaw: newSudokusRaw,
     });
+    delete lineCountCache[collectionId];
     setCollections(getCollections());
   }, []);
 
@@ -139,7 +140,12 @@ export function useSudokuCollections() {
     [isBaseCollection],
   );
 
-  const activeCollection = useMemo(() => getCollection(activeCollectionId), [activeCollectionId, getCollection]);
+  const activeCollection = useMemo(
+    () => getCollection(activeCollectionId),
+    // collections triggers recompute after a sudoku is added/removed
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [activeCollectionId, getCollection, collections],
+  );
 
   const removeCollection = (collectionId: string) => {
     localStorageCollectionRepository.removeCollection(collectionId);

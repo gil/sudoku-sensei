@@ -254,6 +254,7 @@ const SettingsAndInformation = () => {
               <li>{t("backspace")}</li>
               <li>{t("escape")}</li>
               <li>{t("hint")}</li>
+              <li>{t("reveal")}</li>
               <li>{t("note_mode")}</li>
               <li>{t("undo")}</li>
               <li>{t("redo")}</li>
@@ -357,6 +358,8 @@ const GameInner: React.FC<{
   const canUndo = sudokuState.historyIndex < sudokuState.history.length - 1;
   const sudoku = sudokuState.current;
   const {t} = useTranslation();
+  const [hintSignal, setHintSignal] = React.useState(0);
+  const openHint = React.useCallback(() => setHintSignal((s) => s + 1), []);
 
   React.useEffect(() => {
     const isSolved = SudokuGame.isSolved(sudoku);
@@ -405,7 +408,8 @@ const GameInner: React.FC<{
           deactivateNotesMode={deactivateNotesMode}
           setNumber={setNumber}
           clearNumber={clearCell}
-          getHint={getHint}
+          openHint={openHint}
+          revealCell={getHint}
           setNotes={setNotes}
           undo={undo}
           redo={redo}
@@ -521,10 +525,13 @@ const GameInner: React.FC<{
             <SudokuMenuControls
               notesMode={game.notesMode}
               activeCellCoordinates={game.activeCellCoordinates ?? {x: 0, y: 0}}
+              sudoku={sudokuState.current}
+              selectCell={selectCell}
               clearCell={clearCell}
               activateNotesMode={activateNotesMode}
               deactivateNotesMode={deactivateNotesMode}
               getHint={getHint}
+              hintSignal={hintSignal}
               canUndo={canUndo}
               undo={undo}
             />

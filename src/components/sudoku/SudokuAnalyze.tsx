@@ -23,6 +23,18 @@ const Stat: React.FC<{label: string; children: React.ReactNode}> = ({label, chil
 const AnalyzeModal: React.FC<{data: AnalyzeData; onClose: () => void}> = ({data, onClose}) => {
   const {t} = useTranslation();
 
+  React.useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", onKey, true);
+    return () => window.removeEventListener("keydown", onKey, true);
+  }, [onClose]);
+
   const strategies = (data.usedStrategies ?? []).filter(
     (s): s is {title: string; freq: number} => s !== null,
   );

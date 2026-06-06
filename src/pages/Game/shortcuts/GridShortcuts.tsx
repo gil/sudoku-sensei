@@ -12,7 +12,8 @@ const GridShortcuts: React.FC<{
   deactivateNotesMode: () => void;
   setNumber: (cell: Cell, number: number) => void;
   clearNumber: (cell: Cell) => void;
-  getHint: (cell: Cell) => void;
+  openHint: () => void;
+  revealCell: (cell: Cell) => void;
   setNotes: (cell: Cell, notes: number[]) => void;
   undo: () => void;
   redo: () => void;
@@ -29,7 +30,8 @@ const GridShortcuts: React.FC<{
   deactivateNotesMode,
   setNumber,
   clearNumber,
-  getHint,
+  openHint,
+  revealCell,
   setNotes,
   undo,
   redo,
@@ -53,7 +55,8 @@ const GridShortcuts: React.FC<{
     deactivateNotesMode,
     setNumber,
     clearNumber,
-    getHint,
+    openHint,
+    revealCell,
     setNotes,
     undo,
     redo,
@@ -74,7 +77,8 @@ const GridShortcuts: React.FC<{
       deactivateNotesMode,
       setNumber,
       clearNumber,
-      getHint,
+      openHint,
+      revealCell,
       setNotes,
       undo,
       redo,
@@ -191,10 +195,16 @@ const GridShortcuts: React.FC<{
     });
 
     hotkeys("h", ShortcutScope.Game, () => {
-      const {activeCell, getHint} = stateRef.current;
+      stateRef.current.openHint();
+      return false;
+    });
+
+    hotkeys("r", ShortcutScope.Game, () => {
+      const {activeCell, revealCell} = stateRef.current;
       if (activeCell && !activeCell.initial) {
-        getHint(activeCell);
+        revealCell(activeCell);
       }
+      return false;
     });
 
     hotkeys("ctrl+z,cmd+z", ShortcutScope.Game, () => {

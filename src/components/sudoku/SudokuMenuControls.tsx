@@ -1,9 +1,9 @@
 import * as React from "react";
 import Button from "../Button";
 import clsx from "clsx";
-import {CellCoordinates} from "src/lib/engine/types";
-import LanguageSelector from "src/components/LanguageSelector";
+import {Cell, CellCoordinates} from "src/lib/engine/types";
 import { useTranslation } from "react-i18next";
+import SudokuHint from "./SudokuHint";
 
 export const UndoButton: React.FC<{
   canUndo: boolean;
@@ -48,34 +48,28 @@ const NotesButton: React.FC<{
   );
 };
 
-const HintButton: React.FC<{
-  activeCellCoordinates: CellCoordinates;
-  getHint: (cellCoordinates: CellCoordinates) => void;
-}> = ({activeCellCoordinates, getHint}) => {
-  const { t } = useTranslation();
-  return (
-    <Button onClick={() => activeCellCoordinates && getHint(activeCellCoordinates)}>
-      {t("hint_btn")}
-    </Button>
-  );
-};
-
 const SudokuMenuControls: React.FC<{
   notesMode: boolean;
   activeCellCoordinates: CellCoordinates;
+  sudoku: Cell[];
+  selectCell: (cellCoordinates: CellCoordinates) => void;
   clearCell: (cellCoordinates: CellCoordinates) => void;
   activateNotesMode: () => void;
   deactivateNotesMode: () => void;
   getHint: (cellCoordinates: CellCoordinates) => void;
+  hintSignal: number;
   canUndo: boolean;
   undo: () => void;
 }> = ({
   notesMode,
   activeCellCoordinates,
+  sudoku,
+  selectCell,
   clearCell,
   activateNotesMode,
   deactivateNotesMode,
   getHint,
+  hintSignal,
   canUndo,
   undo,
 }) => {
@@ -88,7 +82,7 @@ const SudokuMenuControls: React.FC<{
         activateNotesMode={activateNotesMode}
         deactivateNotesMode={deactivateNotesMode}
       />
-      <HintButton activeCellCoordinates={activeCellCoordinates} getHint={getHint} />
+      <SudokuHint sudoku={sudoku} selectCell={selectCell} getHint={getHint} openSignal={hintSignal} />
     </div>
   );
 };

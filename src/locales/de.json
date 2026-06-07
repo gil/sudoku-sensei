@@ -71,5 +71,19 @@
   "hint_reveal_number": "Zahl aufdecken",
   "hint_remove_candidates": "Kandidaten entfernen",
   "hint_none": "Im Moment ist kein Hinweis verfügbar.",
-  "hint_generic": "Hier gibt es einen logischen nächsten Zug mit der Technik {{name}}."
+  "hint_generic": "Hier gibt es einen logischen nächsten Zug mit der Technik {{name}}.",
+  "hint_tech_FULL_HOUSE": "In einer Reihe, Spalte oder einem Block ist nur eine Zelle leer — sie muss die letzte fehlende Ziffer enthalten.",
+  "hint_tech_NAKED_SINGLE": "Eine leere Zelle hat nur noch einen einzigen Kandidaten, also muss diese Ziffer dorthin.",
+  "hint_tech_HIDDEN_SINGLE": "In einer Reihe, Spalte oder einem Block gibt es nur eine Zelle, in die eine bestimmte Ziffer noch passt.",
+  "hint_tech_LOCKED_CANDIDATES_1": "In einem Block ist eine Ziffer auf eine einzige Linie beschränkt und kann aus dem Rest dieser Linie entfernt werden.",
+  "hint_tech_LOCKED_CANDIDATES_2": "In einer Linie ist eine Ziffer auf einen einzigen Block beschränkt und kann aus dem Rest dieses Blocks entfernt werden.",
+  "hint_tech_LOCKED_CANDIDATES": "Eine Ziffer ist auf die Überschneidung von Block und Linie beschränkt und kann andernorts entfernt werden.",
+  "hint_tech_NAKED_PAIR": "Zwei Zellen einer Einheit teilen dieselben zwei Kandidaten, daher können diese Ziffern aus den anderen Zellen entfernt werden.",
+  "hint_tech_NAKED_TRIPLE": "Drei Zellen einer Einheit teilen dieselben drei Kandidaten, daher können diese Ziffern aus den anderen Zellen entfernt werden.",
+  "hint_tech_NAKED_QUADRUPLE": "Vier Zellen einer Einheit teilen dieselben vier Kandidaten, daher können diese Ziffern aus den anderen Zellen entfernt werden.",
+  "hint_tech_HIDDEN_PAIR": "Zwei Ziffern kommen nur in zwei Zellen einer Einheit vor, daher können die anderen Kandidaten in diesen Zellen entfernt werden.",
+  "hint_tech_HIDDEN_TRIPLE": "Drei Ziffern kommen nur in drei Zellen einer Einheit vor, daher können die anderen Kandidaten in diesen Zellen entfernt werden.",
+  "hint_tech_HIDDEN_QUADRUPLE": "Vier Ziffern kommen nur in vier Zellen einer Einheit vor, daher können die anderen Kandidaten in diesen Zellen entfernt werden.",
+  "hint_tech_LOCKED_PAIR": "Zwei Zellen in der Überschneidung von Block und Linie teilen zwei Kandidaten und eliminieren sie andernorts.",
+  "hint_tech_LOCKED_TRIPLE": "Drei Zellen in der Überschneidung von Block und Linie teilen drei Kandidaten und eliminieren sie andernorts."
 }

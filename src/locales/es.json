@@ -71,5 +71,19 @@
   "hint_reveal_number": "Revelar número",
   "hint_remove_candidates": "Eliminar candidatos",
   "hint_none": "No hay ninguna pista disponible ahora.",
-  "hint_generic": "Aquí hay una jugada lógica usando la técnica {{name}}."
+  "hint_generic": "Aquí hay una jugada lógica usando la técnica {{name}}.",
+  "hint_tech_FULL_HOUSE": "Solo queda una celda vacía en una fila, columna o caja: debe contener la última cifra que falta.",
+  "hint_tech_NAKED_SINGLE": "Una celda vacía tiene un único candidato restante, así que esa cifra debe ir ahí.",
+  "hint_tech_HIDDEN_SINGLE": "En una fila, columna o caja solo hay una celda donde puede ir una cifra concreta.",
+  "hint_tech_LOCKED_CANDIDATES_1": "En una caja, una cifra está confinada a una sola línea, así que puede eliminarse del resto de esa línea.",
+  "hint_tech_LOCKED_CANDIDATES_2": "En una línea, una cifra está confinada a una sola caja, así que puede eliminarse del resto de esa caja.",
+  "hint_tech_LOCKED_CANDIDATES": "Una cifra está confinada a la intersección de una caja y una línea, así que puede eliminarse en otros lugares.",
+  "hint_tech_NAKED_PAIR": "Dos celdas de una unidad comparten los mismos dos candidatos, así que esas cifras pueden eliminarse de las demás celdas.",
+  "hint_tech_NAKED_TRIPLE": "Tres celdas de una unidad comparten los mismos tres candidatos, así que esas cifras pueden eliminarse de las demás celdas.",
+  "hint_tech_NAKED_QUADRUPLE": "Cuatro celdas de una unidad comparten los mismos cuatro candidatos, así que esas cifras pueden eliminarse de las demás celdas.",
+  "hint_tech_HIDDEN_PAIR": "Dos cifras aparecen solo en dos celdas de una unidad, así que los demás candidatos de esas celdas pueden eliminarse.",
+  "hint_tech_HIDDEN_TRIPLE": "Tres cifras aparecen solo en tres celdas de una unidad, así que los demás candidatos de esas celdas pueden eliminarse.",
+  "hint_tech_HIDDEN_QUADRUPLE": "Cuatro cifras aparecen solo en cuatro celdas de una unidad, así que los demás candidatos de esas celdas pueden eliminarse.",
+  "hint_tech_LOCKED_PAIR": "Dos celdas en la intersección de una caja y una línea comparten dos candidatos, eliminándolos en otros lugares.",
+  "hint_tech_LOCKED_TRIPLE": "Tres celdas en la intersección de una caja y una línea comparten tres candidatos, eliminándolos en otros lugares."
 }

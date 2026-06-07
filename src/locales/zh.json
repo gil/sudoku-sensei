@@ -71,5 +71,19 @@
   "hint_reveal_number": "揭示数字",
   "hint_remove_candidates": "移除候选数",
   "hint_none": "暂时没有可用的提示。",
-  "hint_generic": "这里有一步用「{{name}}」技巧的合理走法。"
+  "hint_generic": "这里有一步用「{{name}}」技巧的合理走法。",
+  "hint_tech_FULL_HOUSE": "某一行、列或宫中只剩一个空格——它必须填入最后缺少的数字。",
+  "hint_tech_NAKED_SINGLE": "某个空格只剩一个候选数，因此该数字只能填在这里。",
+  "hint_tech_HIDDEN_SINGLE": "在某一行、列或宫中，某个数字只能填入唯一一个空格。",
+  "hint_tech_LOCKED_CANDIDATES_1": "在某一宫中，某数字被限制在一条线上，可从该线其余格中删除。",
+  "hint_tech_LOCKED_CANDIDATES_2": "在某一线中，某数字被限制在一个宫内，可从该宫其余格中删除。",
+  "hint_tech_LOCKED_CANDIDATES": "某数字被限制在宫与线的交叠处，可在别处删除。",
+  "hint_tech_NAKED_PAIR": "一个单元中的两个格共用相同的两个候选数，因此这些数字可从其他格中删除。",
+  "hint_tech_NAKED_TRIPLE": "一个单元中的三个格共用相同的三个候选数，因此这些数字可从其他格中删除。",
+  "hint_tech_NAKED_QUADRUPLE": "一个单元中的四个格共用相同的四个候选数，因此这些数字可从其他格中删除。",
+  "hint_tech_HIDDEN_PAIR": "两个数字只出现在某单元的两个格中，因此这些格中的其他候选数可删除。",
+  "hint_tech_HIDDEN_TRIPLE": "三个数字只出现在某单元的三个格中，因此这些格中的其他候选数可删除。",
+  "hint_tech_HIDDEN_QUADRUPLE": "四个数字只出现在某单元的四个格中，因此这些格中的其他候选数可删除。",
+  "hint_tech_LOCKED_PAIR": "宫与线交叠处的两个格共用两个候选数，可在别处删除它们。",
+  "hint_tech_LOCKED_TRIPLE": "宫与线交叠处的三个格共用三个候选数，可在别处删除它们。"
 }

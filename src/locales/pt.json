@@ -71,5 +71,19 @@
   "hint_reveal_number": "Revelar número",
   "hint_remove_candidates": "Remover candidatos",
   "hint_none": "Nenhuma dica disponível no momento.",
-  "hint_generic": "Há uma jogada lógica aqui usando a técnica {{name}}."
+  "hint_generic": "Há uma jogada lógica aqui usando a técnica {{name}}.",
+  "hint_tech_FULL_HOUSE": "Resta apenas uma célula vazia em uma linha, coluna ou bloco — ela deve conter o último dígito que falta.",
+  "hint_tech_NAKED_SINGLE": "Uma célula vazia tem apenas um único candidato restante, então esse dígito deve ir ali.",
+  "hint_tech_HIDDEN_SINGLE": "Em uma linha, coluna ou bloco há apenas uma célula onde um dígito específico ainda pode ir.",
+  "hint_tech_LOCKED_CANDIDATES_1": "Em um bloco, um dígito está confinado a uma única linha, então pode ser removido do resto dessa linha.",
+  "hint_tech_LOCKED_CANDIDATES_2": "Em uma linha, um dígito está confinado a um único bloco, então pode ser removido do resto desse bloco.",
+  "hint_tech_LOCKED_CANDIDATES": "Um dígito está confinado à interseção de um bloco e uma linha, então pode ser removido em outros lugares.",
+  "hint_tech_NAKED_PAIR": "Duas células de uma unidade compartilham os mesmos dois candidatos, então esses dígitos podem ser removidos das outras células.",
+  "hint_tech_NAKED_TRIPLE": "Três células de uma unidade compartilham os mesmos três candidatos, então esses dígitos podem ser removidos das outras células.",
+  "hint_tech_NAKED_QUADRUPLE": "Quatro células de uma unidade compartilham os mesmos quatro candidatos, então esses dígitos podem ser removidos das outras células.",
+  "hint_tech_HIDDEN_PAIR": "Dois dígitos aparecem em apenas duas células de uma unidade, então os outros candidatos dessas células podem ser removidos.",
+  "hint_tech_HIDDEN_TRIPLE": "Três dígitos aparecem em apenas três células de uma unidade, então os outros candidatos dessas células podem ser removidos.",
+  "hint_tech_HIDDEN_QUADRUPLE": "Quatro dígitos aparecem em apenas quatro células de uma unidade, então os outros candidatos dessas células podem ser removidos.",
+  "hint_tech_LOCKED_PAIR": "Duas células na interseção de um bloco e uma linha compartilham dois candidatos, eliminando-os em outros lugares.",
+  "hint_tech_LOCKED_TRIPLE": "Três células na interseção de um bloco e uma linha compartilham três candidatos, eliminando-os em outros lugares."
 }

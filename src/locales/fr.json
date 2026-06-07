@@ -70,5 +70,19 @@
   "hint_reveal_number": "Révéler le chiffre",
   "hint_remove_candidates": "Supprimer les candidats",
   "hint_none": "Aucun indice disponible pour le moment.",
-  "hint_generic": "Il y a ici un coup logique avec la technique {{name}}."
+  "hint_generic": "Il y a ici un coup logique avec la technique {{name}}.",
+  "hint_tech_FULL_HOUSE": "Une seule case reste vide dans une ligne, colonne ou région : elle doit contenir le dernier chiffre manquant.",
+  "hint_tech_NAKED_SINGLE": "Une case vide n'a plus qu'un seul candidat, ce chiffre doit donc y aller.",
+  "hint_tech_HIDDEN_SINGLE": "Dans une ligne, colonne ou région, il n'y a qu'une case où un chiffre donné peut encore aller.",
+  "hint_tech_LOCKED_CANDIDATES_1": "Dans une région, un chiffre est limité à une seule ligne ; on peut le retirer du reste de cette ligne.",
+  "hint_tech_LOCKED_CANDIDATES_2": "Dans une ligne, un chiffre est limité à une seule région ; on peut le retirer du reste de cette région.",
+  "hint_tech_LOCKED_CANDIDATES": "Un chiffre est limité à l'intersection d'une région et d'une ligne ; on peut le retirer ailleurs.",
+  "hint_tech_NAKED_PAIR": "Deux cases d'une unité partagent les deux mêmes candidats ; ces chiffres peuvent être retirés des autres cases.",
+  "hint_tech_NAKED_TRIPLE": "Trois cases d'une unité partagent les trois mêmes candidats ; ces chiffres peuvent être retirés des autres cases.",
+  "hint_tech_NAKED_QUADRUPLE": "Quatre cases d'une unité partagent les quatre mêmes candidats ; ces chiffres peuvent être retirés des autres cases.",
+  "hint_tech_HIDDEN_PAIR": "Deux chiffres n'apparaissent que dans deux cases d'une unité ; les autres candidats de ces cases peuvent être retirés.",
+  "hint_tech_HIDDEN_TRIPLE": "Trois chiffres n'apparaissent que dans trois cases d'une unité ; les autres candidats de ces cases peuvent être retirés.",
+  "hint_tech_HIDDEN_QUADRUPLE": "Quatre chiffres n'apparaissent que dans quatre cases d'une unité ; les autres candidats de ces cases peuvent être retirés.",
+  "hint_tech_LOCKED_PAIR": "Deux cases à l'intersection d'une région et d'une ligne partagent deux candidats, les éliminant ailleurs.",
+  "hint_tech_LOCKED_TRIPLE": "Trois cases à l'intersection d'une région et d'une ligne partagent trois candidats, les éliminant ailleurs."
 }

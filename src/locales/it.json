@@ -71,5 +71,19 @@
   "hint_reveal_number": "Rivela il numero",
   "hint_remove_candidates": "Rimuovi candidati",
   "hint_none": "Nessun suggerimento disponibile al momento.",
-  "hint_generic": "Qui c'è una mossa logica con la tecnica {{name}}."
+  "hint_generic": "Qui c'è una mossa logica con la tecnica {{name}}.",
+  "hint_tech_FULL_HOUSE": "In una riga, colonna o riquadro resta una sola cella vuota: deve contenere l'ultima cifra mancante.",
+  "hint_tech_NAKED_SINGLE": "Una cella vuota ha un solo candidato rimasto, quindi quella cifra deve andare lì.",
+  "hint_tech_HIDDEN_SINGLE": "In una riga, colonna o riquadro c'è una sola cella in cui una certa cifra può ancora andare.",
+  "hint_tech_LOCKED_CANDIDATES_1": "In un riquadro una cifra è confinata a una sola linea, quindi può essere rimossa dal resto di quella linea.",
+  "hint_tech_LOCKED_CANDIDATES_2": "In una linea una cifra è confinata a un solo riquadro, quindi può essere rimossa dal resto di quel riquadro.",
+  "hint_tech_LOCKED_CANDIDATES": "Una cifra è confinata all'intersezione di un riquadro e una linea, quindi può essere rimossa altrove.",
+  "hint_tech_NAKED_PAIR": "Due celle di un'unità condividono gli stessi due candidati, quindi quelle cifre possono essere rimosse dalle altre celle.",
+  "hint_tech_NAKED_TRIPLE": "Tre celle di un'unità condividono gli stessi tre candidati, quindi quelle cifre possono essere rimosse dalle altre celle.",
+  "hint_tech_NAKED_QUADRUPLE": "Quattro celle di un'unità condividono gli stessi quattro candidati, quindi quelle cifre possono essere rimosse dalle altre celle.",
+  "hint_tech_HIDDEN_PAIR": "Due cifre compaiono solo in due celle di un'unità, quindi gli altri candidati in quelle celle possono essere rimossi.",
+  "hint_tech_HIDDEN_TRIPLE": "Tre cifre compaiono solo in tre celle di un'unità, quindi gli altri candidati in quelle celle possono essere rimossi.",
+  "hint_tech_HIDDEN_QUADRUPLE": "Quattro cifre compaiono solo in quattro celle di un'unità, quindi gli altri candidati in quelle celle possono essere rimossi.",
+  "hint_tech_LOCKED_PAIR": "Due celle nell'intersezione di un riquadro e una linea condividono due candidati, eliminandoli altrove.",
+  "hint_tech_LOCKED_TRIPLE": "Tre celle nell'intersezione di un riquadro e una linea condividono tre candidati, eliminandoli altrove."
 }

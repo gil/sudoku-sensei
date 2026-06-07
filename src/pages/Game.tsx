@@ -702,61 +702,73 @@ const GameWithRouteManagement = () => {
     }
 
     console.info("Loading sudoku from URL", sudokuIndex, sudoku, sudokuCollectionName);
-    // We only show a message if the user has played for more than 5 seconds and has not won.
-    if (gameState.secondsPlayed > 5 && !gameState.won) {
-      const areYouSure = confirm(
-        t("confirm_new_game", {
-          currentCollectionName: translateCollectionName(gameState.sudokuCollectionName),
-          currentIndex: gameState.sudokuIndex + 1,
-          newCollectionName: translateCollectionName(sudokuCollectionName),
-          newIndex: sudokuIndex,
-        }),
-      );
-      if (!areYouSure) {
-        setInitialized(true);
-        return;
-      }
-    }
 
-    // The user wants to play the sudoku from the URL.
-    try {
-      const parsedSudoku = parseSudoku(sudoku);
-      const solvedSudoku = solve(parsedSudoku);
-      if (solvedSudoku.sudoku) {
-        setSudoku(parsedSudoku, solvedSudoku.sudoku);
-      } else {
+    // Defer: blocking confirm/alert in the effect re-enters React's scheduler.
+    let cancelled = false;
+    const timeoutId = setTimeout(() => {
+      if (cancelled) return;
+
+      // We only show a message if the user has played for more than 5 seconds and has not won.
+      if (gameState.secondsPlayed > 5 && !gameState.won) {
+        const areYouSure = confirm(
+          t("confirm_new_game", {
+            currentCollectionName: translateCollectionName(gameState.sudokuCollectionName),
+            currentIndex: gameState.sudokuIndex + 1,
+            newCollectionName: translateCollectionName(sudokuCollectionName),
+            newIndex: sudokuIndex,
+          }),
+        );
+        if (!areYouSure) {
+          setInitialized(true);
+          return;
+        }
+      }
+
+      // The user wants to play the sudoku from the URL.
+      try {
+        const parsedSudoku = parseSudoku(sudoku);
+        const solvedSudoku = solve(parsedSudoku);
+        if (solvedSudoku.sudoku) {
+          setSudoku(parsedSudoku, solvedSudoku.sudoku);
+        } else {
+          alert(t("invalid_sudoku_url"));
+          setInitialized(true);
+          return;
+        }
+      } catch (error) {
         alert(t("invalid_sudoku_url"));
         setInitialized(true);
+        console.error(error);
         return;
       }
-    } catch (error) {
-      alert(t("invalid_sudoku_url"));
+
+      const storedSudoku = localStoragePlayedSudokuRepository.getSudokuState(sudoku);
+      newGame(
+        sudokuIndex - 1, // We subtract 1 because the index is 0-based, but we want to display it as 1-based in the URL.
+        sudokuCollectionName,
+        storedSudoku?.game.timesSolved ?? 0,
+        storedSudoku?.game.previousTimes ?? [],
+      );
+
+      // If we have a stored sudoku, we need to set the game state and sudoku state.
+      if (storedSudoku && !storedSudoku.game.won) {
+        setGameState({
+          ...storedSudoku.game,
+        });
+        setSudokuState({
+          current: storedSudoku.sudoku,
+          history: [storedSudoku.sudoku],
+          historyIndex: 0,
+        });
+      }
       setInitialized(true);
-      console.error(error);
-      return;
-    }
+      continueGame();
+    }, 0);
 
-    const storedSudoku = localStoragePlayedSudokuRepository.getSudokuState(sudoku);
-    newGame(
-      sudokuIndex - 1, // We subtract 1 because the index is 0-based, but we want to display it as 1-based in the URL.
-      sudokuCollectionName,
-      storedSudoku?.game.timesSolved ?? 0,
-      storedSudoku?.game.previousTimes ?? [],
-    );
-
-    // If we have a stored sudoku, we need to set the game state and sudoku state.
-    if (storedSudoku && !storedSudoku.game.won) {
-      setGameState({
-        ...storedSudoku.game,
-      });
-      setSudokuState({
-        current: storedSudoku.sudoku,
-        history: [storedSudoku.sudoku],
-        historyIndex: 0,
-      });
-    }
-    setInitialized(true);
-    continueGame();
+    return () => {
+      cancelled = true;
+      clearTimeout(timeoutId);
+    };
   }, [
     sudokuIndex,
     sudoku,

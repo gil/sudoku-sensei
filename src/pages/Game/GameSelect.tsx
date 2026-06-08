@@ -244,7 +244,10 @@ const GameIndex = ({
 };
 
 const usePaginatedSudokus = (collection: Collection, page: number, pageSize: number) => {
-  return getSudokusPaginated(collection, page, pageSize);
+  return React.useMemo(
+    () => getSudokusPaginated(collection, page, pageSize),
+    [collection, page, pageSize],
+  );
 };
 
 const GameSelect: React.FC = () => {

@@ -20,13 +20,14 @@ const parseDocLink = (href: string): {slug: string; frag: string | null} | null 
 
 const LearnModal: React.FC<{
   initialSlug?: string;
+  initialFrag?: string | null;
   onClose: () => void;
-}> = ({initialSlug = LEARN_DOCS[0].slug, onClose}) => {
+}> = ({initialSlug = LEARN_DOCS[0].slug, initialFrag = null, onClose}) => {
   const [slug, setSlug] = React.useState(initialSlug);
   const [content, setContent] = React.useState<string | null>(null);
   const [error, setError] = React.useState(false);
   const contentRef = React.useRef<HTMLDivElement>(null);
-  const pendingFrag = React.useRef<string | null>(null);
+  const pendingFrag = React.useRef<string | null>(initialFrag);
 
   const scrollToFrag = React.useCallback((frag: string) => {
     const el = contentRef.current?.querySelector(`#${CSS.escape(frag)}`);

@@ -2,6 +2,8 @@ import * as React from "react";
 import {useTranslation} from "react-i18next";
 
 import {SolveStep} from "src/lib/game/analyze";
+import {learnRefForTechnique, LearnRef} from "src/lib/learn";
+import LearnModal from "src/components/LearnModal";
 
 const DIFFICULTY_TRANSLATION_KEY: Record<string, string> = {
   easy: "difficulty_easy",
@@ -21,11 +23,16 @@ const DIFFICULTY_BADGE_CLASS: Record<string, string> = {
 
 const cellLabel = (cell: {row: number; col: number}) => `R${cell.row + 1}C${cell.col + 1}`;
 
-const StepRow: React.FC<{step: SolveStep; index: number}> = ({step, index}) => {
+const StepRow: React.FC<{step: SolveStep; index: number; onLearn: (ref: LearnRef) => void}> = ({
+  step,
+  index,
+  onLearn,
+}) => {
   const {t} = useTranslation();
   const difficultyKey = DIFFICULTY_TRANSLATION_KEY[step.difficulty];
   const difficultyLabel = difficultyKey ? t(difficultyKey) : step.difficulty;
   const badgeClass = DIFFICULTY_BADGE_CLASS[step.difficulty] ?? "bg-gray-200 text-gray-700";
+  const learnRef = learnRefForTechnique(step.technique);
 
   return (
     <li className="rounded-md border border-gray-200 p-3 dark:border-gray-700">
@@ -39,7 +46,7 @@ const StepRow: React.FC<{step: SolveStep; index: number}> = ({step, index}) => {
         </span>
       </div>
       <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">{step.explanation}</p>
-      <div className="mt-2 flex flex-wrap gap-1.5 text-xs">
+      <div className="mt-2 flex flex-wrap items-center gap-1.5 text-xs">
         {step.placements.map((p, i) => (
           <span
             key={`p-${i}`}
@@ -56,6 +63,14 @@ const StepRow: React.FC<{step: SolveStep; index: number}> = ({step, index}) => {
             {cellLabel(e)} ≠ {e.value}
           </span>
         ))}
+        {learnRef && (
+          <button
+            onClick={() => onLearn(learnRef)}
+            className="ml-auto px-1.5 py-0.5 font-medium text-teal-700 hover:underline hover:text-teal-600 dark:text-teal-300 dark:hover:text-teal-200"
+          >
+            {t("hint_learn_more")}
+          </button>
+        )}
       </div>
     </li>
   );
@@ -67,6 +82,7 @@ const SolvePathPanel: React.FC<{
   onClose: () => void;
 }> = ({steps, solving, onClose}) => {
   const {t} = useTranslation();
+  const [learnRef, setLearnRef] = React.useState<LearnRef | null>(null);
 
   return (
     <div className="text-black dark:text-white">
@@ -87,9 +103,12 @@ const SolvePathPanel: React.FC<{
       ) : (
         <ol className="grid max-h-[60vh] gap-2 overflow-y-auto pr-1">
           {steps.map((step, i) => (
-            <StepRow key={i} step={step} index={i} />
+            <StepRow key={i} step={step} index={i} onLearn={setLearnRef} />
           ))}
         </ol>
+      )}
+      {learnRef && (
+        <LearnModal initialSlug={learnRef.slug} initialFrag={learnRef.frag} onClose={() => setLearnRef(null)} />
       )}
     </div>
   );

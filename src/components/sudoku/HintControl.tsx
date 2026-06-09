@@ -1,6 +1,8 @@
 import * as React from "react";
 import {useTranslation} from "react-i18next";
 import Button from "../Button";
+import LearnModal from "../LearnModal";
+import {learnRefForTechnique} from "src/lib/learn";
 import {HintFlow} from "./useHint";
 
 const DIFFICULTY_TRANSLATION_KEY: Record<string, string> = {
@@ -14,9 +16,12 @@ const DIFFICULTY_TRANSLATION_KEY: Record<string, string> = {
 const HintControl: React.FC<{flow: HintFlow}> = ({flow}) => {
   const {t, i18n} = useTranslation();
   const {stage, hint, open, showWhere, reveal, close} = flow;
+  const [learnOpen, setLearnOpen] = React.useState(false);
 
   const difficultyKey = hint ? DIFFICULTY_TRANSLATION_KEY[hint.difficulty] : undefined;
   const difficultyLabel = difficultyKey ? t(difficultyKey) : hint?.difficulty;
+
+  const learnRef = hint ? learnRefForTechnique(hint.technique) : undefined;
 
   const descriptionKey = hint ? `hint_tech_${hint.technique}` : "";
   const description =
@@ -71,6 +76,14 @@ const HintControl: React.FC<{flow: HintFlow}> = ({flow}) => {
                   {t("hint_difficulty", {difficulty: difficultyLabel})}
                 </div>
                 <p className="mt-1 text-sm">{description}</p>
+                {learnRef && (
+                  <button
+                    onClick={() => setLearnOpen(true)}
+                    className="mt-1 text-xs text-teal-600 underline hover:text-teal-500 dark:text-teal-400"
+                  >
+                    {t("hint_learn_more")}
+                  </button>
+                )}
               </div>
               {stage === "explain" ? (
                 <Button className="bg-teal-600 text-white dark:bg-teal-600" onClick={showWhere}>
@@ -84,6 +97,9 @@ const HintControl: React.FC<{flow: HintFlow}> = ({flow}) => {
             </div>
           )}
         </div>
+      )}
+      {learnOpen && learnRef && (
+        <LearnModal initialSlug={learnRef.slug} initialFrag={learnRef.frag} onClose={() => setLearnOpen(false)} />
       )}
     </div>
   );

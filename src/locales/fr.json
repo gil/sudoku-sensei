@@ -92,6 +92,7 @@
   "confirm_clear" : "Êtes-vous sûr de vouloir recommencer cette partie ? Votre progression sera perdue.",
   "copied" : "Copié",
   "hint_technique": "Technique : {{name}}",
+  "hint_learn_more": "En savoir plus sur cette technique",
   "hint_difficulty": "Difficulté : {{difficulty}}",
   "hint_show_where": "Montre-moi où",
   "hint_reveal_number": "Révéler le chiffre",

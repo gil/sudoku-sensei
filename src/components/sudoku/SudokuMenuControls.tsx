@@ -1,6 +1,7 @@
 import * as React from "react";
 import Button from "../Button";
 import clsx from "clsx";
+import {Undo2Icon, EraserIcon, PencilIcon} from "lucide-react";
 import {CellCoordinates} from "src/lib/engine/types";
 import { useTranslation } from "react-i18next";
 import HintControl from "./HintControl";
@@ -13,6 +14,7 @@ export const UndoButton: React.FC<{
   const { t } = useTranslation();
   return (
     <Button disabled={!canUndo} onClick={undo}>
+      <Undo2Icon className="h-4 w-4" />
       {t("undo_btn")}
     </Button>
   );
@@ -25,6 +27,7 @@ export const EraseButton: React.FC<{
   const { t } = useTranslation();
   return (
     <Button onClick={() => activeCellCoordinates && clearCell(activeCellCoordinates)}>
+      <EraserIcon className="h-4 w-4" />
       {t("erase_btn")}
     </Button>
   );
@@ -44,6 +47,7 @@ const NotesButton: React.FC<{
           "bg-sky-700 text-white": notesMode,
         })}
       >{`${notesMode ? "ON" : "OFF"}`}</div>
+      <PencilIcon className="h-4 w-4" />
       <div>{t("note_btn")}</div>
     </Button>
   );

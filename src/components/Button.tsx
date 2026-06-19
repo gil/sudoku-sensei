@@ -20,7 +20,7 @@ const Button = ({
       onClick={onClick}
       className={twMerge(
         clsx(
-          "rounded-sm border-none bg-white dark:text-white dark:bg-gray-500 md:px-4 md:py-2 px-2 py-1 text-black shadow-sm transition-transform hover:brightness-90 focus:outline-none disabled:brightness-75",
+          "inline-flex items-center justify-center gap-1.5 rounded-md border-none bg-white dark:text-white dark:bg-gray-500 md:px-4 md:py-2 px-2 py-1 text-black shadow-sm transition-all hover:brightness-90 focus:outline-none active:scale-95 disabled:brightness-75",
           className,
           {
             "scale-110 brightness-90": active,

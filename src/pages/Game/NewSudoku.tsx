@@ -1,5 +1,6 @@
 import hotkeys from "hotkeys-js";
 import * as React from "react";
+import {SaveIcon} from "lucide-react";
 import Button from "src/components/Button";
 import {Sudoku} from "src/components/sudoku/Sudoku";
 import {EraseButton, UndoButton} from "src/components/sudoku/SudokuMenuControls";
@@ -234,6 +235,7 @@ const NewSudokuInner = ({saveSudoku}: {saveSudoku: (sudoku: SimpleSudoku) => Pro
             className="bg-teal-600 dark:bg-teal-600 text-white"
             onClick={saveSudokuLocal}
           >
+            <SaveIcon className="h-4 w-4" />
             {isSaving ? "Saving..." : isChecking ? "Checking uniqueness..." : "Save sudoku"}
           </Button>
           {errors.length > 0 && (

@@ -4,6 +4,7 @@ import {Container} from "src/components/Layout";
 import Button from "../components/Button";
 import {useNavigate} from "@tanstack/react-router";
 import {DarkModeButton} from "src/components/DarkModeButton";
+import {ArrowLeftIcon} from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const SelectGame = () => {
@@ -24,7 +25,8 @@ const SelectGame = () => {
           <div className="flex gap-2">
             <DarkModeButton />
             <Button className="bg-teal-600 dark:bg-teal-600 text-white flex-shrink-0" onClick={goBack}>
-              {"◀ " + t('go_back')}
+              <ArrowLeftIcon className="h-4 w-4" />
+              {t('go_back')}
             </Button>
           </div>
         </div>

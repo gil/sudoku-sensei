@@ -1,5 +1,6 @@
 import * as React from "react";
 import {useTranslation} from "react-i18next";
+import {LightbulbIcon, MapPinIcon, CheckIcon} from "lucide-react";
 import Button from "../Button";
 import LearnModal from "../LearnModal";
 import {learnRefForTechnique} from "src/lib/learn";
@@ -55,6 +56,7 @@ const HintControl: React.FC<{flow: HintFlow}> = ({flow}) => {
   return (
     <div className="relative">
       <Button className="w-full" onClick={stage === "idle" ? open : close} active={stage !== "idle"}>
+        <LightbulbIcon className="h-4 w-4" />
         {t("hint_btn")}
       </Button>
       {stage !== "idle" && (
@@ -87,10 +89,12 @@ const HintControl: React.FC<{flow: HintFlow}> = ({flow}) => {
               </div>
               {stage === "explain" ? (
                 <Button className="bg-teal-600 text-white dark:bg-teal-600" onClick={showWhere}>
+                  <MapPinIcon className="h-4 w-4" />
                   {t("hint_show_where")}
                 </Button>
               ) : (
                 <Button className="bg-teal-600 text-white dark:bg-teal-600" onClick={reveal}>
+                  <CheckIcon className="h-4 w-4" />
                   {hint.value !== null ? t("hint_reveal_number") : t("hint_remove_candidates")}
                 </Button>
               )}

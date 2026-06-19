@@ -1,4 +1,16 @@
 import * as React from "react";
+import {
+  PlayIcon,
+  PauseIcon,
+  Trash2Icon,
+  PlusIcon,
+  BookOpenIcon,
+  BarChart3Icon,
+  Wand2Icon,
+  Share2Icon,
+  ChevronRightIcon,
+  ArrowRightIcon,
+} from "lucide-react";
 
 import {useGame, GameStateMachine, GameState, INITIAL_GAME_STATE, GameProvider} from "src/context/GameContext";
 import {emptyGrid, INITIAL_SUDOKU_STATE, SudokuProvider, SudokuState, useSudoku} from "src/context/SudokuContext";
@@ -55,6 +67,7 @@ function PauseButton({
   const {t} = useTranslation();
   return (
     <Button disabled={disabled} onClick={paused ? continueGame : pauseGame}>
+      {paused ? <PlayIcon className="h-4 w-4" /> : <PauseIcon className="h-4 w-4" />}
       {paused ? t("continue") : t("pause")}
     </Button>
   );
@@ -85,6 +98,7 @@ const ClearGameButton: React.FC<{
 
   return (
     <Button disabled={disabled} onClick={clearGameLocal}>
+      <Trash2Icon className="h-4 w-4" />
       {t("clear")}
     </Button>
   );
@@ -104,6 +118,7 @@ const NewGameButton: React.FC = () => {
 
   return (
     <Button className="bg-teal-600 dark:bg-teal-600 text-white" onClick={pauseAndChoose}>
+      <PlusIcon className="h-4 w-4" />
       {t("new_game")}
     </Button>
   );
@@ -148,7 +163,10 @@ const NextSudokuButton: React.FC<{gameState: GameState; setDisableAutoSync: (dis
           {t("collection_finished", {collection: translateCollectionName(collection.name)})}
         </p>
         <Link to="/select-game" className="w-full">
-          <Button className="bg-teal-700 text-white w-full">{t("select_new_sudoku")}</Button>
+          <Button className="bg-teal-700 text-white w-full">
+            {t("select_new_sudoku")}
+            <ChevronRightIcon className="h-4 w-4" />
+          </Button>
         </Link>
       </div>
     );
@@ -172,6 +190,7 @@ const NextSudokuButton: React.FC<{gameState: GameState; setDisableAutoSync: (dis
           collection: translateCollectionName(collection.name),
           sudokuIndex: nextSudokuParams.sudokuIndex,
         })}
+        <ArrowRightIcon className="h-4 w-4 flex-shrink-0" />
       </Button>
     </Link>
   );
@@ -210,8 +229,12 @@ const ShareButton: React.FC<{
   const {t} = useTranslation();
 
   return (
-    <div className="text-white hover:cursor-pointer p-1 hover:bg-gray-500 rounded-md" onClick={handleShare}>
-      {copied ? t("copied") : `🔗 ${t("share")}`}
+    <div
+      className="flex items-center gap-1 text-white hover:cursor-pointer p-1 hover:bg-gray-500 rounded-md"
+      onClick={handleShare}
+    >
+      <Share2Icon className="h-4 w-4" />
+      {copied ? t("copied") : t("share")}
     </div>
   );
 };
@@ -243,7 +266,10 @@ const AnalyzeButton: React.FC<{sudoku: SudokuState["current"]}> = ({sudoku}) => 
 
   return (
     <>
-      <Button onClick={analyze}>{t("analyze")}</Button>
+      <Button onClick={analyze}>
+        <BarChart3Icon className="h-4 w-4" />
+        {t("analyze")}
+      </Button>
       {analysis && <AnalyzeModal analysis={analysis} onClose={() => setAnalysis(null)} />}
     </>
   );
@@ -255,7 +281,10 @@ const LearnButton: React.FC = () => {
 
   return (
     <>
-      <Button onClick={() => setOpen(true)}>{t("learn")}</Button>
+      <Button onClick={() => setOpen(true)}>
+        <BookOpenIcon className="h-4 w-4" />
+        {t("learn")}
+      </Button>
       {open && <LearnModal onClose={() => setOpen(false)} />}
     </>
   );
@@ -490,6 +519,7 @@ const GameInner: React.FC<{
                 <LearnButton />
                 <AnalyzeButton sudoku={sudokuState.current} />
                 <Button active={showSolvePath} onClick={handleSolvePath}>
+                  <Wand2Icon className="h-4 w-4" />
                   {t("solve")}
                 </Button>
                 <ClearGameButton

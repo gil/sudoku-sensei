@@ -4,6 +4,10 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@types/react': 18.3.12
+  '@types/react-dom': 18.3.0
+
 importers:
 
   .:
@@ -26,6 +30,9 @@ importers:
       lodash-es:
         specifier: 4.17.21
         version: 4.17.21
+      lucide-react:
+        specifier: ^1.21.0
+        version: 1.21.0(react@18.3.1)
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -37,7 +44,7 @@ importers:
         version: 15.7.2(i18next@25.4.2(typescript@5.8.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)
       react-markdown:
         specifier: ^10.1.0
-        version: 10.1.0(@types/react@19.2.17)(react@18.3.1)
+        version: 10.1.0(@types/react@18.3.12)(react@18.3.1)
       rehype-raw:
         specifier: ^7.0.0
         version: 7.0.0
@@ -54,6 +61,9 @@ importers:
       '@types/node':
         specifier: 24.3.1
         version: 24.3.1
+      '@types/react':
+        specifier: 18.3.12
+        version: 18.3.12
       '@types/react-dom':
         specifier: 18.3.0
         version: 18.3.0
@@ -1185,7 +1195,7 @@ packages:
   '@types/hoist-non-react-statics@3.3.7':
     resolution: {integrity: sha512-PQTyIulDkIDro8P+IHbKCsw7U2xxBYflVzW/FgWdCAePD9xGSidgA76/GeJ6lBKoblyhf9pBY763gbrN+1dI8g==}
     peerDependencies:
-      '@types/react': '*'
+      '@types/react': 18.3.12
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
@@ -1205,11 +1215,14 @@ packages:
   '@types/node@24.3.1':
     resolution: {integrity: sha512-3vXmQDXy+woz+gnrTvuvNrPzekOi+Ds0ReMxw0LzBiK3a+1k0kQn9f2NWk+lgD4rJehFUmYy2gMhJ2ZI+7YP9g==}
 
+  '@types/prop-types@15.7.15':
+    resolution: {integrity: sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw==}
+
   '@types/react-dom@18.3.0':
     resolution: {integrity: sha512-EhwApuTmMBmXuFOikhQLIBUn6uFg81SwLMOAUgodJF14SOBOCMdU04gDoYi0WOJJHD144TL32z4yDqCW3dnkQg==}
 
-  '@types/react@19.2.17':
-    resolution: {integrity: sha512-MXfmqaVPEVgkBT/aY0aGCkRWWtByiYQXo3xdQ8r5RzuFrPiRn8Gar2tQdXSUQ2GKV3bkXckek89V8wQBY2Q/Aw==}
+  '@types/react@18.3.12':
+    resolution: {integrity: sha512-D2wOSq/d6Agt28q7rSI3jhU7G6aiuzljDGZ2hTZHIkrTLUI+AF3WMeKkEZ9nN2fkBAlcktT6vcZjDFiIhMYEQw==}
 
   '@types/resolve@1.20.2':
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
@@ -2177,7 +2190,7 @@ packages:
     resolution: {integrity: sha512-g7df9rMFX/SPi34tyGCyUBREQoKkapwdY/T04Qn9TDWfHhAYt4/I0gMVirzK5wEzeUqIjEB+LXC/ypb7Aqno5w==}
 
   hodoku-ts@https://codeload.github.com/gil/HoDoKu-ts/tar.gz/4587443292dd56ce330899dcf5da9c4eba7b46fe:
-    resolution: {tarball: https://codeload.github.com/gil/HoDoKu-ts/tar.gz/4587443292dd56ce330899dcf5da9c4eba7b46fe}
+    resolution: {gitHosted: true, integrity: sha512-5BvQ/UmEz9V3+mDjXI7hNQulMiJDKHZBWbe/Pj+JJmd9AaP38NKHlOOTYx1kiq3Re6nT02qOqaVeShLYhwlKgQ==, tarball: https://codeload.github.com/gil/HoDoKu-ts/tar.gz/4587443292dd56ce330899dcf5da9c4eba7b46fe}
     version: 0.0.0
     engines: {node: '>=18'}
 
@@ -2500,6 +2513,11 @@ packages:
 
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
+
+  lucide-react@1.21.0:
+    resolution: {integrity: sha512-reEZMXq8Qdd5jg5XYkQ5TR1fB/GiQ7ih4vcrthYDtgjSDwh0i6/YLiGjsWsIwgN49gpAnd4J2elSNzncMEEUUQ==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
@@ -2943,7 +2961,7 @@ packages:
   react-markdown@10.1.0:
     resolution: {integrity: sha512-qKxVopLT/TyA6BX3Ue5NwabOsAzm0Q7kAPwq6L+wWDwisYs7R8vZ0nRXqq6rkueboxpkjvLGU9fWifiX/ZZFxQ==}
     peerDependencies:
-      '@types/react': '>=18'
+      '@types/react': 18.3.12
       react: '>=18'
 
   react-refresh@0.17.0:
@@ -3356,6 +3374,7 @@ packages:
   tsconfck@3.1.6:
     resolution: {integrity: sha512-ks6Vjr/jEw0P1gmOVwutM3B7fWxoWBL2KRDb1JfqGVawBmO5UsvmWOQFGHBPl5yxYz4eERr19E6L7NMv+Fej4w==}
     engines: {node: ^18 || >=20}
+    deprecated: unmaintained
     hasBin: true
     peerDependencies:
       typescript: ^5.0.0
@@ -4785,9 +4804,9 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
-  '@types/hoist-non-react-statics@3.3.7(@types/react@19.2.17)':
+  '@types/hoist-non-react-statics@3.3.7(@types/react@18.3.12)':
     dependencies:
-      '@types/react': 19.2.17
+      '@types/react': 18.3.12
       hoist-non-react-statics: 3.3.2
 
   '@types/json-schema@7.0.15': {}
@@ -4808,20 +4827,23 @@ snapshots:
     dependencies:
       undici-types: 7.10.0
 
+  '@types/prop-types@15.7.15': {}
+
   '@types/react-dom@18.3.0':
     dependencies:
-      '@types/react': 19.2.17
+      '@types/react': 18.3.12
 
-  '@types/react@19.2.17':
+  '@types/react@18.3.12':
     dependencies:
+      '@types/prop-types': 15.7.15
       csstype: 3.2.3
 
   '@types/resolve@1.20.2': {}
 
   '@types/styled-components@5.1.34':
     dependencies:
-      '@types/hoist-non-react-statics': 3.3.7(@types/react@19.2.17)
-      '@types/react': 19.2.17
+      '@types/hoist-non-react-statics': 3.3.7(@types/react@18.3.12)
+      '@types/react': 18.3.12
       csstype: 3.2.3
 
   '@types/trusted-types@2.0.7': {}
@@ -6351,6 +6373,10 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
+  lucide-react@1.21.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+
   magic-string@0.30.21:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
@@ -6848,11 +6874,11 @@ snapshots:
 
   react-is@16.13.1: {}
 
-  react-markdown@10.1.0(@types/react@19.2.17)(react@18.3.1):
+  react-markdown@10.1.0(@types/react@18.3.12)(react@18.3.1):
     dependencies:
       '@types/hast': 3.0.4
       '@types/mdast': 4.0.4
-      '@types/react': 19.2.17
+      '@types/react': 18.3.12
       devlop: 1.1.0
       hast-util-to-jsx-runtime: 2.3.6
       html-url-attributes: 3.0.1

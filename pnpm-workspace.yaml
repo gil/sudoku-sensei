@@ -1,0 +1,7 @@
+allowBuilds:
+  esbuild: true
+  hodoku-ts@https://codeload.github.com/gil/HoDoKu-ts/tar.gz/4587443292dd56ce330899dcf5da9c4eba7b46fe: true
+
+overrides:
+  "@types/react": "18.3.12"
+  "@types/react-dom": "18.3.0"

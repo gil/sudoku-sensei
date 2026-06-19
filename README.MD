@@ -72,17 +72,17 @@ git clone https://github.com/tn1ck/super-sudoku.git
 cd super-sudoku
 
 # Install dependencies
-npm install
+pnpm install
 
 # Start development server
-npm start
+pnpm start
 ```
 
 The app should open automatically.
 
 ### Build for Production
 ```bash
-npm run build
+pnpm run build
 ```
 Generated files will be in the `dist` directory.
 

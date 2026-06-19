@@ -16,7 +16,7 @@ Born from a simple request - my Grandma wanted to play Sudoku, but I wasn't sati
 
 ## 🆕 What's New in This Fork
 
-This is a [fork](https://github.com/gil/super-sudoku) of [Super Sudoku](https://github.com/TN1ck/super-sudoku) by Tom Nick, with added intelligence on top of the original. Highlights beyond upstream:
+This is a [fork](https://github.com/gil/sudoku-sensei) of [Super Sudoku](https://github.com/TN1ck/super-sudoku) by Tom Nick, with added intelligence on top of the original. Highlights beyond upstream:
 
 - **Smart Hints**: Step-by-step hints that name the actual solving technique and its difficulty, powered by [HoDoKu-ts](https://github.com/gil/HoDoKu-ts).
 - **Puzzle Analysis**: Analyze any board to see which techniques are required to solve it.

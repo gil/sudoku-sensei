@@ -322,7 +322,7 @@ const SettingsAndInformation = () => {
           <h2 className="text-3xl font-bold text-white">{t("about")}</h2>
           <p className="text-white">
             {t("about_text")}{" "}
-            <a target="_blank" className="underline" href="https://github.com/gil/super-sudoku" rel="noreferrer">
+            <a target="_blank" className="underline" href="https://github.com/gil/sudoku-sensei" rel="noreferrer">
               {t("about_fork")}
             </a>{" "}
             {t("about_of")}{" "}

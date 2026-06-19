@@ -2,7 +2,7 @@
   "name": "super-sudoku",
   "version": "0.1.0",
   "type": "module",
-  "description": "Super Sudoku",
+  "description": "Sudoku Sensei",
   "license": "GPL-3.0",
   "node": "24.3.1",
   "scripts": {

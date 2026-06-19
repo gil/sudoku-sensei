@@ -1,6 +1,6 @@
 {
-    "name": "Super sudoku",
-    "short_name": "super-sudoku",
+    "name": "Sudoku Sensei",
+    "short_name": "Sudoku Sensei",
     "start_url": "/",
     "scope": "/",
     "icons": [

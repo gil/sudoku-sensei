@@ -38,7 +38,7 @@
   "last_time": "Dernier temps :",
   "select_new_sudoku": "Sélectionner un nouveau sudoku",
   "collection_finished": "Félicitations ! Vous avez atteint la fin de la collection \"{{collection}}\". Sélectionnez un nouveau sudoku à jouer.",
-  "super_sudoku": "Super Sudoku",
+  "sudoku_sensei": "Sudoku Sensei",
   "erase_btn": "Effacer",
   "undo_btn": "Annuler",
   "note_btn": "Notes",

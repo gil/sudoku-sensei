@@ -501,8 +501,8 @@ const GameInner: React.FC<{
           clipboardNotes={game.clipboardNotes}
           copyNotes={copyNotes}
         />
-        <header className="flex justify-between sm:items-center mt-4">
-          <div className="flex text-white flex-col sm:flex-row sm:justify-end sm:items-center gap-2">
+        <header className="flex flex-wrap justify-between  sm:items-center mt-4">
+          <div className="flex grow text-white justify-start items-center gap-2">
             <div className="flex gap-2 items-center">
               <DifficultyShow>{`${translateCollectionName(game.sudokuCollectionName)} #${game.sudokuIndex + 1}`}</DifficultyShow>
               <ShareButton gameState={game} sudokuState={sudokuState} />
@@ -510,42 +510,38 @@ const GameInner: React.FC<{
             <div className="hidden sm:block">{"|"}</div>
             <GameTimer />
           </div>
-          <div className="text-white text-lg sm:text-2xl font-bold flex items-center gap-2">{t("sudoku_sensei")}</div>
-          <div className="flex">
-            <div className="flex gap-2 flex-col justify-end items-end sm:flex-row">
-              <div className="flex gap-2">
-                <LanguageSelector />
-                <DarkModeButton />
-                <LearnButton />
-                <AnalyzeButton sudoku={sudokuState.current} />
-                <Button active={showSolvePath} onClick={handleSolvePath}>
-                  <Wand2Icon className="h-4 w-4" />
-                  {t("solve")}
-                </Button>
-                <ClearGameButton
-                  pauseGame={pauseGame}
-                  continueGame={continueGame}
-                  disabled={game.won || game.state === GameStateMachine.paused}
-                  clearGame={() => {
-                    const simpleSudoku = cellsToSimpleSudoku(sudokuState.current);
-                    const solved = solve(simpleSudoku);
-                    if (solved.sudoku) {
-                      setSudoku(simpleSudoku, solved.sudoku);
-                    }
-                    resetGame();
-                  }}
-                />
-              </div>
-              <div className="flex gap-2">
-                <PauseButton
-                  disabled={game.won}
-                  paused={game.state === GameStateMachine.paused}
-                  continueGame={continueGame}
-                  pauseGame={pauseGame}
-                />
-                <NewGameButton />
-              </div>
-            </div>
+          <div className="text-white text-lg sm:text-2xl font-bold flex grow justify-end items-center gap-2">
+            {t("sudoku_sensei")}
+          </div>
+          <div className="flex grow gap-2 flex-row flex-wrap justify-end items-end">
+            <LanguageSelector />
+            <DarkModeButton />
+            <LearnButton />
+            <AnalyzeButton sudoku={sudokuState.current} />
+            <Button active={showSolvePath} onClick={handleSolvePath}>
+              <Wand2Icon className="h-4 w-4" />
+              {t("solve")}
+            </Button>
+            <ClearGameButton
+              pauseGame={pauseGame}
+              continueGame={continueGame}
+              disabled={game.won || game.state === GameStateMachine.paused}
+              clearGame={() => {
+                const simpleSudoku = cellsToSimpleSudoku(sudokuState.current);
+                const solved = solve(simpleSudoku);
+                if (solved.sudoku) {
+                  setSudoku(simpleSudoku, solved.sudoku);
+                }
+                resetGame();
+              }}
+            />
+            <PauseButton
+              disabled={game.won}
+              paused={game.state === GameStateMachine.paused}
+              continueGame={continueGame}
+              pauseGame={pauseGame}
+            />
+            <NewGameButton />
           </div>
         </header>
         <div className="flex gap-4 flex-col md:flex-row">
@@ -683,16 +679,7 @@ const GameWithRouteManagement = () => {
     toggleShowWrongEntries,
     toggleShowConflicts,
   } = useUserPreferences();
-  const {
-    setSudokuState,
-    state: sudokuState,
-    setSudoku,
-    setNumber,
-    setNotes,
-    clearCell,
-    undo,
-    redo,
-  } = useSudoku();
+  const {setSudokuState, state: sudokuState, setSudoku, setNumber, setNotes, clearCell, undo, redo} = useSudoku();
   const [initialized, setInitialized] = React.useState(false);
   const [disableAutoSync, setDisableAutoSync] = React.useState(false);
   const navigate = useNavigate();

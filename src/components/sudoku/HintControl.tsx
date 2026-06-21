@@ -22,6 +22,8 @@ const HintControl: React.FC<{flow: HintFlow}> = ({flow}) => {
   const difficultyKey = hint ? DIFFICULTY_TRANSLATION_KEY[hint.difficulty] : undefined;
   const difficultyLabel = difficultyKey ? t(difficultyKey) : hint?.difficulty;
 
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
   const learnRef = hint ? learnRefForTechnique(hint.technique) : undefined;
 
   const descriptionKey = hint ? `hint_tech_${hint.technique}` : "";
@@ -53,8 +55,21 @@ const HintControl: React.FC<{flow: HintFlow}> = ({flow}) => {
     return () => document.removeEventListener("keydown", onKeyDown, true);
   }, [stage, hint, close, showWhere, reveal]);
 
+  React.useEffect(() => {
+    if (stage === "idle" || learnOpen) {
+      return;
+    }
+    const onPointerDown = (e: PointerEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        close();
+      }
+    };
+    document.addEventListener("pointerdown", onPointerDown, true);
+    return () => document.removeEventListener("pointerdown", onPointerDown, true);
+  }, [stage, learnOpen, close]);
+
   return (
-    <div className="relative">
+    <div className="relative" ref={containerRef}>
       <Button className="w-full" onClick={stage === "idle" ? open : close} active={stage !== "idle"}>
         <LightbulbIcon className="h-4 w-4" />
         {t("hint_btn")}
